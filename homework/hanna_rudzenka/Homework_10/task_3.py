@@ -1,11 +1,5 @@
-"""
-долго сидела нам этим заданием, не уверена что правильно его сделала, получается нет разницы какой operation я
-добавлю в аргументах, потому что декоратор решает какую операцию использовать?
- """
-
-
 def func_decorator(func):
-    def wrapper(first, second, operation):
+    def wrapper(first, second):
         if first > 0 and second > 0:
             if first == second:
                 return func(first, second, operation="+")
@@ -32,4 +26,4 @@ def calc(first, second, operation):
 
 int_1 = int(input('введите первое число'))
 int_2 = int(input('введите второе число'))
-print(calc(int_1, int_2, '*'))
+print(calc(int_1, int_2))
