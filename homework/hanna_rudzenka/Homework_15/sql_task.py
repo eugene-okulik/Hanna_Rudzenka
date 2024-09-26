@@ -29,11 +29,10 @@ group_id = cursor.lastrowid
 student_update = 'UPDATE students SET group_id = %s WHERE id = %s'
 cursor.execute(student_update, (f'{group_id}', f'{student_id}'))
 
-create_subject1 = 'INSERT INTO subjets (title) VALUES (%s)'
-cursor.execute(create_subject1, ('Python Automation Course',))
+create_subject = 'INSERT INTO subjets (title) VALUES (%s)'
+cursor.execute(create_subject, ('Python Automation Course',))
 subject1_id = cursor.lastrowid
-create_subject2 = create_subject1
-cursor.execute(create_subject2, ('Python Course for beginners',))
+cursor.execute(create_subject, ('Python Course for beginners',))
 subject2_id = cursor.lastrowid
 
 create_lesson = 'INSERT INTO lessons (title, subject_id) VALUES (%s,%s)'
