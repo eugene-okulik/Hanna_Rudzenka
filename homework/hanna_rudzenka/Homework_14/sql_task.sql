@@ -2,7 +2,7 @@ INSERT INTO students (name, second_name) VALUES ('Hanna', 'R')
 INSERT INTO books (title, taken_by_student_id) VALUES ('Python for beginners', 2165)
 INSERT INTO books (title, taken_by_student_id) VALUES ('Python from scratch', 2165)
 INSERT INTO `groups` (title, start_date, end_date) VALUES ('self-group', 'sep 2024', 'nov 2024')
-UPDATE students SET group_id = 1954 WHERE second_name = 'R'
+UPDATE students SET group_id = 1954 WHERE students.id = 2165
 INSERT INTO subjets (title) VALUES ('Python Automation Course')
 INSERT INTO subjets (title) VALUES ('Python Course for beginners')
 INSERT INTO lessons (title, subject_id) VALUES ('classes', 2782)
@@ -24,4 +24,4 @@ join marks m2 on m2.student_id = s.id
 join `groups` g on s.group_id = g.id
 join lessons l on m2.lesson_id = l.id
 join subjets on l.subject_id = subjets.id
-WHERE s.name = 'Hanna' and s.second_name = 'R'
+WHERE s.id = 2165
