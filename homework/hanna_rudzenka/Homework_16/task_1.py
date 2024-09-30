@@ -22,9 +22,9 @@ with open(lesson_16_hw_data_file_path, newline='') as csv_file:
     data = []
     for row in file_data:
         data.append(row)
-    csv_student_data = data[1:]
+    csv_students_data = data[1:]
 
-    for row in csv_student_data:
+    for row in csv_students_data:
         name, second_name, group_title, book_title, subject_title, lesson_title, mark_value = row
         cursor.execute(f"""SELECT *
         FROM books
