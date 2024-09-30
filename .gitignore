@@ -1,8 +1,5 @@
-venv
-.idea
-.DS_Store
-.pytest_cache
-.venv
-__pycache__
-credentials.py
 .env
+.idea/
+new_venv/
+.pytest_cache
+__pycache__
