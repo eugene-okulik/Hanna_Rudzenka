@@ -15,12 +15,12 @@ for file in os.listdir(args.log_folder_path):
                 word_list = line.split(' ')
                 text_index = word_list.index(args.text)
                 five_words_after_search_text = word_list[text_index + 1:text_index + 6]
-                five_words_before_search_text = word_list[:text_index] if text_index < 6 else word_list[
-                                                                                              text_index - 5:text_index]
+                five_words_before_search_text = (
+                    word_list[:text_index] if text_index < 6 else word_list[text_index - 5:text_index]
+                )
                 print(f'text found in file name: {log_file}, in line_number {line_number}')
                 print(f'five words before the searched text {five_words_before_search_text}')
                 print(f'The searched text is {args.text}')
                 print(f'five words after the searched text {five_words_after_search_text}')
                 break
 print('Search text is not found in log files')
-
