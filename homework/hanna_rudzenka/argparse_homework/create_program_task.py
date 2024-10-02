@@ -23,4 +23,3 @@ for file in os.listdir(args.log_folder_path):
                 print(f'five words after the searched text {five_words_after_search_text}')
                 break
 print('Search text is not found in log files')
-
