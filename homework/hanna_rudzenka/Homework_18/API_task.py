@@ -3,7 +3,7 @@ import requests
 base_url = 'http://167.172.172.115:52353/object'
 
 
-def create_new_object_and_return_id():
+def get_object_id():
     body = {
         "name": "Ivan",
         "data": {
@@ -20,8 +20,21 @@ def clear_object(object_id):
     requests.delete(f'{base_url}/{object_id}')
 
 
+def create_new_object():
+    body = {
+        "name": "Kate",
+        "data": {
+            "age": 30,
+            "job": "doctor"
+        }
+    }
+    headers = {"Content-Type": "application/json"}
+    response = requests.post(base_url, json=body, headers=headers)
+    assert response.status_code == 200, f'Expected status code is 200, the actual one is {response.status_code}'
+
+
 def update_new_object_with_put_method():
-    object_id = create_new_object_and_return_id()
+    object_id = get_object_id()
     body = {
         "name": "Ivan",
         "data": {
@@ -37,11 +50,10 @@ def update_new_object_with_put_method():
 
 
 def update_new_object_with_patch_method():
-    object_id = create_new_object_and_return_id()
+    object_id = get_object_id()
     body = {
         "data": {
-            "age": 31,
-            "job": "doctor"
+            "age": 31
         }
     }
     headers = {"Content-Type": "application/json"}
@@ -52,7 +64,7 @@ def update_new_object_with_patch_method():
 
 
 def delete_object():
-    object_id = create_new_object_and_return_id()
+    object_id = get_object_id()
     requests.delete(f'{base_url}/{object_id}')
     response = requests.get(f'{base_url}/{object_id}')
     assert response.status_code == 404
