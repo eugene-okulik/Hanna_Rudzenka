@@ -12,7 +12,7 @@ def start_end_testing_print():
 
 
 @pytest.fixture(autouse=True)
-def before_each_test_print():
+def before_and_after_each_test_print():
     print('before test')
     yield
     print('after test')
