@@ -10,3 +10,5 @@ class DeleteUser(Endpoint):
         requests.delete(f'{self.base_url}/{user_id}')
         with allure.step('Get data of a deleted user'):
             response = requests.get(f'{self.base_url}/{user_id}')
+        assert response.status_code == 404, (f'Expected status code is 404, '
+                                             f'the actual is {self.response.status_code}')
