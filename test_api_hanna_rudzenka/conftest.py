@@ -29,9 +29,9 @@ def delete_user_object():
 
 
 @pytest.fixture()
-def create_user_and_get_id():
+def create_user_and_get_id(create_user_object, delete_user_object):
     body = {"name": "Ivan", "data": {"age": 30, "job": "doctor"}}
-    headers = {"Content-Type": "application/json"}
-    response = requests.post(Endpoint.base_url, json=body, headers=headers).json()
-    user_id = response['id']
-    yield user_id
+    create_user_object.create_user(body)
+    user_id = create_user_object.json['id']
+    yield create_user_object.json['id']
+    delete_user_object.delete_user_by_id(user_id)
