@@ -9,4 +9,3 @@ class DeleteUser(Endpoint):
     def delete_user_by_id(self, user_id):
         self.response = requests.delete(f'{self.base_url}/{user_id}')
         print(self.response)
-
