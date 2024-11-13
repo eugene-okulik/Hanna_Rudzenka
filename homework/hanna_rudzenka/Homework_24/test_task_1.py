@@ -23,5 +23,6 @@ def test_1():
     driver.close()
     driver.switch_to.window(tabs[0])
     driver.find_element(By.LINK_TEXT, "Cart").click()
-    item_text = wait.until(exp_cond.presence_of_element_located((By.CSS_SELECTOR, "#tbodyid > tr > td:nth-child(2)"))).text
+    item_text = wait.until(
+        exp_cond.presence_of_element_located((By.CSS_SELECTOR, "#tbodyid > tr > td:nth-child(2)"))).text
     assert item_text == "Samsung galaxy s6"
