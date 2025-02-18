@@ -13,7 +13,8 @@ class EcoFriendly(BasePage):
                 const selectElement = document.querySelector('select#sorter');
                 selectElement.value = '{value}';
                 selectElement.dispatchEvent(new Event('change', {{ bubbles: true }}));
-                window.location.href = 'https://magento.softwaretestingboard.com/collections/eco-friendly.html?product_list_order={value}';
+                window.location.href = 'https://magento.softwaretestingboard.com/collections/eco-friendly.html?
+                product_list_order={value}';
             """)
         self.page.wait_for_url(
             f'https://magento.softwaretestingboard.com{self.page_endpoint}?product_list_order={value}')

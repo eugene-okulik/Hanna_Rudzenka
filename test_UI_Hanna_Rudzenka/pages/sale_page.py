@@ -9,7 +9,8 @@ class SalePage(BasePage):
     page_endpoint = '/sale.html'
 
     def check_category_menu_titles_are(self, title_list: list):
-        categoty_title_list = [elem.text_content().upper() for elem in self.find(CATEGORY_MENU_TITLES_LOC).element_handles()]
+        categoty_title_list = [elem.text_content().upper() for elem in
+                               self.find(CATEGORY_MENU_TITLES_LOC).element_handles()]
         assert categoty_title_list == title_list
 
     def check_block_promo_elems_count_is(self, count):
